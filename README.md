@@ -8,5 +8,8 @@
 
 **Sample:** See script in action here: https://docs.google.com/spreadsheets/d/1M-yxPHlObbHmXoCbd8yMNBAsM18JwgQ7JlnWXY4G-Xw/edit?usp=sharing
 
+**Future Additions:**  
+- Allow for changes to original list of deliverables
+- Save these changes as a new tab for quick reuse
 
 
