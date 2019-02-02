@@ -1,5 +1,4 @@
 # GoogleScripts
-### **Purpose:** A Collection of Google Scripts for automating repeated tasks.  
 
 ### **Task 1: Schedule of Deliverables for Project Managers**
 
