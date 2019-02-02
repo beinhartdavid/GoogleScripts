@@ -1,0 +1,37 @@
+function addDays(date, days) {
+  var result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
+
+function createCalendar(){ 
+  var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1wHZrhEgpgIHPya5d9uE0EuS9JP26vLgOFmuXc8Zbzqg/edit?usp=sharing");
+  
+  
+  var inputs = ss.getSheetByName("Inputs");
+  var range1 = inputs.getRange(2,1);
+  var range2 = inputs.getRange(2,3);
+  calName = range1.getValue();
+  projectDate = range2.getValue();
+  
+  
+  var sheet = ss.getSheetByName('Checklist');
+  var lr = sheet.getLastRow();
+  
+  var cal = CalendarApp.createCalendar(calName);
+  var data = sheet.getRange("A2:D" + lr).getValues();
+  
+  for(var i = 0;i<data.length;i++){
+    Logger.log(data[i][0]);
+    
+    var newSDate = addDays(projectDate,data[i][0]);
+    var newEDate = new Date(newSDate.getTime() + 60*60000);
+    Logger.log(newSDate);
+    Logger.log(newEDate);
+    
+    cal.createEvent(data[i][1],newSDate,newSDate,{description: data[i][3]});
+   
+  }
+  Browser.msgBox("Calendar Created!");
+}
